@@ -5,7 +5,7 @@ import styled from "styled-components";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 import { ResultData } from "../assets/data/resultdata";
-
+import KakaoShareButton from '../component/KakaoShareButton';
 const Result = () => {
   const navigate = useNavigate();
   return (
@@ -30,12 +30,18 @@ const Result = () => {
           <Link to="https://laftel.net/item/24512/%EC%95%94%EC%82%B4%EA%B5%90%EC%8B%A4-1%EA%B8%B0">Home</Link>
         </Platform>
 
-        <Button
-          style={{ fontFamily: "SimKyungha" }}
-          onClick={() => navigate("/")}
-        >
-          테스트 다시하기
-        </Button>
+        <ButtonGroup>
+          <Button
+            style={{ fontFamily: "SimKyungha", width:170}}
+            onClick={() => navigate("/")}>
+            테스트 다시하기
+          </Button>
+          <Button
+            style={{ fontFamily: "SimKyungha", width:170, marginTop: '20px'}}>
+            카카오톡 공유하기
+          </Button>
+          <KakaoShareButton />
+        </ButtonGroup>
       </Contents>
     </Wrapper>
   );
@@ -74,14 +80,14 @@ const Contents = styled.div`
   width: 40%;
 
   background-color: white;
-`;
+`
 
 const Desc = styled.div`
   font-size: 20pt;
   margin-top: 20px;
   font-family: "SimKyungha";
   width: 60%;
-`;
+`
 
 const Plot = styled.div`
   width: 60%;
@@ -89,7 +95,7 @@ const Plot = styled.div`
   font-size: 15pt;
   margin-top: 20px;
   font-family: "SimKyungha";
-`;
+`
 
 const Platform = styled.div`
   width: 60%;
@@ -97,22 +103,26 @@ const Platform = styled.div`
   font-size: 20pt;
   margin-top: 20px;
   font-family: "SimKyungha";
-`;
-
-const Link = styled.div`
-
-`;
+`
 
 
 const Title = styled.div`
   font-size: 30pt;
   margin-top: 40px;
   font-family: "SimKyungha";
-`;
+`
 
 const LogoImage = styled.div`
   margin-top: 10px;
   text-align: center;
   align-items:center;
   justify-content:center;
-`;
+`
+
+const Link = styled.div `
+`
+
+const ButtonGroup = styled.div `
+  display:flex;
+  flex-direction : column;
+`
