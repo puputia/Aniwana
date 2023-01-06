@@ -5,7 +5,9 @@ import styled from "styled-components";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 import { ResultData } from "../assets/data/resultdata";
-import KakaoShareButton from '../component/KakaoShareButton';
+
+
+
 const Result = () => {
   const navigate = useNavigate();
   return (
@@ -27,20 +29,22 @@ const Result = () => {
         </Plot>
         <Platform>
           <div>감상 가능한 플랫폼</div>
-          <Link to="https://laftel.net/item/24512/%EC%95%94%EC%82%B4%EA%B5%90%EC%8B%A4-1%EA%B8%B0">Home</Link>
+          <button onClick={()=>{window.open(ResultData[0].url1)}}>라프텔 바로가기</button>
+          <button onClick={()=>{window.open(ResultData[0].url2)}}>넷플릭스 바로가기</button>
         </Platform>
 
         <ButtonGroup>
           <Button
-            style={{ fontFamily: "SimKyungha", width:170}}
+            style={{ fontFamily: "SimKyungha", width:170}}>
+            카카오톡 공유하기
+          </Button>
+          <Button
+            style={{ fontFamily: "SimKyungha", width:170, marginTop: '15px'}}
             onClick={() => navigate("/")}>
             테스트 다시하기
           </Button>
-          <Button
-            style={{ fontFamily: "SimKyungha", width:170, marginTop: '20px'}}>
-            카카오톡 공유하기
-          </Button>
-          <KakaoShareButton />
+          
+          
         </ButtonGroup>
       </Contents>
     </Wrapper>
@@ -126,3 +130,4 @@ const ButtonGroup = styled.div `
   display:flex;
   flex-direction : column;
 `
+
