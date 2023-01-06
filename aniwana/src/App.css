@@ -1,0 +1,18 @@
+.App {
+  text-align: center;
+}
+
+html{
+  overflow: auto;
+}
+html, body {
+  margin : 0;
+  padding: 0;
+  height: 100%;
+  background-color: #e2e2e2;
+}
+
+#root {
+  margin : 0;
+  height: 100%;
+}
