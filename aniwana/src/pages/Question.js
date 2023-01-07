@@ -126,9 +126,9 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.div`
-  font-size: 2em;
+  font-size: 1.6em;
   text-align: center;
-  font-family: "SimKyungha";
+  font-family: 'Pretendard-Regular';
 `;
 
 const Contents = styled.div`
@@ -158,7 +158,7 @@ const PageNo = styled.div`
 
 const ButtonGroup = styled.div`
   display: flex;
-  font-family: "LeeSeoYun";
+  font-family: "Pretendard-Regular";
   flex-direction: column;
   align-items: center;
   justify-content: center;

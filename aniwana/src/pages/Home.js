@@ -24,7 +24,7 @@ const Home = () => {
                 <LogoImage>
                     <img  class="col-lg-10 col-md-8 mx-3 col-sm-8 col-8" src={PangImage} alt="..." />
                 </LogoImage>
-                <Button class="start-btn" variant="dark" style={{ width: "250px", height: "70px", marginTop:"20px", borderRadius:"20px", fontSize: "25px", fontFamily:"SimKyungha"}} onClick={handleClickButton}>
+                <Button class="start-btn" variant="dark" style={{ width: "250px", height: "70px", marginTop:"20px", borderRadius:"20px", fontSize: "20px", fontFamily: "Pretendard-Regular"}} onClick={handleClickButton}>
                     테스트 시작하기
                 </Button>
             </Contents>
@@ -60,14 +60,14 @@ const Title = styled.div `
     font-size: 30pt;
     font-weight: bold;
     margin-top: 40px;
-    font-family: "SimKyungha";
+    font-family: 'Pretendard-Regular';
     color: white;
 `
 
 const SubTitle = styled.div `
     font-size: 22pt;
     margin-top: 40px;
-    font-family: "SimKyungha";
+    font-family: 'Pretendard-Regular'; 
     color: white;
 `
 

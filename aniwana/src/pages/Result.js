@@ -7,6 +7,16 @@ import { useNavigate } from "react-router-dom";
 import { ResultData } from "../assets/data/resultdata";
 
 
+// function ShowAni() {
+//   var 현재상태 = 'info';
+//   return (
+//     <div>
+//       {
+//         ResultData[0].link2
+//       }
+//     </div>
+//   )
+// } 
 
 const Result = () => {
   const navigate = useNavigate();
@@ -29,17 +39,25 @@ const Result = () => {
         </Plot>
         <Platform>
           <div>감상 가능한 플랫폼</div>
-          <button onClick={()=>{window.open(ResultData[0].url1)}}>라프텔 바로가기</button>
-          <button onClick={()=>{window.open(ResultData[0].url2)}}>넷플릭스 바로가기</button>
+          <Button onClick={()=>{window.open(ResultData[0].url1)}}
+            style={{ fontFamily: "Pretendard-Regular", width:170, marginTop: '5px', textAligns:"center", justifyContent:"center", display:"flex", AlignsItem:"center"}}>
+            라프텔 바로가기
+          </Button>
+          <Button onClick={()=>{window.open(ResultData[0].url2)}}
+            style={{ fontFamily: "Pretendard-Regular", width:170, marginTop: '5px', textAligns:"center", justifyContent:"center", display:"flex", AlignsItem:"center"}}>
+            넷플릭스 바로가기
+          </Button>
+          {/* <button onClick={()=>{window.open(ResultData[0].url1)}}>라프텔 바로가기</button>
+          <button onClick={()=>{window.open(ResultData[0].url2)}}>넷플릭스 바로가기</button> */}
         </Platform>
 
         <ButtonGroup>
           <Button
-            style={{ fontFamily: "SimKyungha", width:170}}>
+            style={{ fontFamily: "Pretendard-Regular", width:170, marginTop: '15px'}}>
             카카오톡 공유하기
           </Button>
           <Button
-            style={{ fontFamily: "SimKyungha", width:170, marginTop: '15px'}}
+            style={{ fontFamily: "Pretendard-Regular", width:170, marginTop: '15px'}}
             onClick={() => navigate("/")}>
             테스트 다시하기
           </Button>
@@ -70,7 +88,7 @@ const Header = styled.div`
   text-align: center
   width: 100%;
   justify-content: center;
-  font-family: "SimKyungha";
+  font-family: 'Pretendard-Regular';
   background-color: #34ab64;
   color: white;
   
@@ -82,14 +100,14 @@ const Contents = styled.div`
   align-items: center;
   flex-direction: column;
   width: 40%;
-
+  font-family: 'Pretendard-Regular';
   background-color: white;
 `
 
 const Desc = styled.div`
   font-size: 20pt;
   margin-top: 20px;
-  font-family: "SimKyungha";
+  
   width: 60%;
 `
 
@@ -98,7 +116,7 @@ const Plot = styled.div`
   background: #cccccc;
   font-size: 15pt;
   margin-top: 20px;
-  font-family: "SimKyungha";
+  font-family: 'Pretendard-Regular';
 `
 
 const Platform = styled.div`
@@ -106,14 +124,14 @@ const Platform = styled.div`
 
   font-size: 20pt;
   margin-top: 20px;
-  font-family: "SimKyungha";
+  font-family: 'Pretendard-Regular';;
 `
 
 
 const Title = styled.div`
   font-size: 30pt;
   margin-top: 40px;
-  font-family: "SimKyungha";
+  font-family: 'Pretendard-Regular';
 `
 
 const LogoImage = styled.div`
@@ -123,8 +141,8 @@ const LogoImage = styled.div`
   justify-content:center;
 `
 
-const Link = styled.div `
-`
+// const Link = styled.div `
+// `
 
 const ButtonGroup = styled.div `
   display:flex;
