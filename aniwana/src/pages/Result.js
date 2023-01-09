@@ -5,6 +5,11 @@ import styled from "styled-components";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 import { ResultData } from "../assets/data/resultdata";
+import NetflixLogo from '../assets/img/logo/netflix_logo.png';
+import LaftelLogo from '../assets/img/logo/laftel_logo.png';
+import Arrow from '../assets/img/logo/arrow.png';
+import Kakao from '../assets/img/logo/kakaotalk_sharing_btn_small.png'
+import Twitter from '../assets/img/logo/twitter.png'
 
 
 // function ShowAni() {
@@ -39,25 +44,36 @@ const Result = () => {
         </Plot>
         <Platform>
           <div>감상 가능한 플랫폼</div>
-          <Button onClick={()=>{window.open(ResultData[0].url1)}}
-            style={{ fontFamily: "Pretendard-Regular", width:170, marginTop: '5px', textAligns:"center", justifyContent:"center", display:"flex", AlignsItem:"center"}}>
-            라프텔 바로가기
+          {/* <Button onClick={()=>{window.open(ResultData[0].url1)}}
+            style={{ fontFamily: "Pretendard-Regular", width:170, marginTop: '5px', textAligns:"center", justifyContent:"center", display:"flex", alignItems:"center"}}>
+            <img src alt=""/> 라프텔 바로가기
           </Button>
           <Button onClick={()=>{window.open(ResultData[0].url2)}}
-            style={{ fontFamily: "Pretendard-Regular", width:170, marginTop: '5px', textAligns:"center", justifyContent:"center", display:"flex", AlignsItem:"center"}}>
-            넷플릭스 바로가기
-          </Button>
-          {/* <button onClick={()=>{window.open(ResultData[0].url1)}}>라프텔 바로가기</button>
-          <button onClick={()=>{window.open(ResultData[0].url2)}}>넷플릭스 바로가기</button> */}
+            style={{ fontFamily: "Pretendard-Regular", width:170, marginTop: '5px', textAligns:"center", justifyContent:"center", display:"flex", alignItems:"center"
+            }}>
+            넷플릭스 바로가기 */}
+          {/* </Button> */}
+          
+          <button class="my-4" width="20rem" style={{background: "white", border:"none", display:"flex", flexDirection:"row",alignItems: "center"}} onClick={()=>{window.open(ResultData[0].url1)}}>
+            <img src={LaftelLogo} alt="logo1" width="100"  /><div class="mx-4" style={{alignItems: "center",justifyContents:"center", textAlign:"center"}}>라프텔</div><img class="mx-4" src={Arrow} alt="arrow" width="35" />
+          </button>
+         
+          <button class="my-4" width="20rem" style={{background: "white", border:"none" , display:"flex", flexDirection:"row", alignItems: "center"}} onClick={()=>{window.open(ResultData[0].url2)}}>
+            <img src={NetflixLogo} alt="logo2" width="100" /><div class="mx-4" style={{alignItems: "center",justifyContents:"center", textAlign:"center"}}>넷플릭스</div><img class="mx-4" src={Arrow} alt="arrow" width="35" />
+          </button>
         </Platform>
 
         <ButtonGroup>
-          <Button
-            style={{ fontFamily: "Pretendard-Regular", width:170, marginTop: '15px'}}>
-            카카오톡 공유하기
+          <Button 
+            style={{background:"#FEE500", border:"1px solid #cccccc", color:"black", fontFamily: "Pretendard-Regular",width:300, height: 55,  marginTop: '15px'}}>
+            <img style={{border:"none", width:"30px", marginRight:"5px"}} src={Kakao} alt="카카오톡 공유"/>카카오톡 공유하기
+          </Button>
+          <Button 
+            style={{background:"#00acee", border:"1px solid #cccccc", color:"black", fontFamily: "Pretendard-Regular",width:300, height: 55,  marginTop: '15px'}}>
+            <img style={{border:"none", width:"45px", marginRight:"5px"}} src={Twitter} alt="트위터 공유"/>트위터 공유하기
           </Button>
           <Button
-            style={{ fontFamily: "Pretendard-Regular", width:170, marginTop: '15px'}}
+            style={{background:"black", fontFamily: "Pretendard-Regular", width:300, height: 55, marginTop: '15px'}}
             onClick={() => navigate("/")}>
             테스트 다시하기
           </Button>
