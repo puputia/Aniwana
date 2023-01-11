@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import Home from './pages/Home';
 import Question from './pages/Question';
 import Result from './pages/Result';

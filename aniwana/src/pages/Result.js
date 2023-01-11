@@ -31,7 +31,7 @@ const Result = () => {
         <Header>나의 취향 애니찾기</Header>
         <Title>결과 보기</Title>
         <LogoImage>
-          <img class="col-lg-9 col-md-8 mx-3 col-sm-8 col-12 mx-auto " src={ResultData[0].image} alt="..."  />
+          <img class="col-lg-10 col-md-8 mx-3 col-sm-8 col-8" src={ResultData[0].image} alt="..."  />
         </LogoImage>
         <Desc>
           <div>내 애니취향은</div>
@@ -40,10 +40,10 @@ const Result = () => {
           </div>
         </Desc>
         <Plot>
-          <div>{ResultData[0].plot} </div>
+          <div style={{whiteSpace: "pre-line"}}>{ResultData[0].plot} </div>
         </Plot>
         <Platform>
-          <div>감상 가능한 플랫폼</div>
+          <div style={{fontWeight:"bold"}}>감상 가능한 플랫폼</div>
           {/* <Button onClick={()=>{window.open(ResultData[0].url1)}}
             style={{ fontFamily: "Pretendard-Regular", width:170, marginTop: '5px', textAligns:"center", justifyContent:"center", display:"flex", alignItems:"center"}}>
             <img src alt=""/> 라프텔 바로가기
@@ -53,14 +53,15 @@ const Result = () => {
             }}>
             넷플릭스 바로가기 */}
           {/* </Button> */}
+            <ButtonGroup>
+            <button class="my-4" width="20rem" style={{background: "white", border:"none", display:"flex", flexDirection:"row",alignItems: "center"}} onClick={()=>{window.open(ResultData[0].url1)}}>
+              <img src={LaftelLogo} alt="logo1" width="100"  /><div style={{alignItems: "center",justifyContents:"center", textAlign:"center", width:"100%" }}>라프텔</div><img src={Arrow} alt="arrow" width="35" />
+            </button>
           
-          <button class="my-4" width="20rem" style={{background: "white", border:"none", display:"flex", flexDirection:"row",alignItems: "center"}} onClick={()=>{window.open(ResultData[0].url1)}}>
-            <img src={LaftelLogo} alt="logo1" width="100"  /><div class="mx-4" style={{alignItems: "center",justifyContents:"center", textAlign:"center"}}>라프텔</div><img class="mx-4" src={Arrow} alt="arrow" width="35" />
-          </button>
-         
-          <button class="my-4" width="20rem" style={{background: "white", border:"none" , display:"flex", flexDirection:"row", alignItems: "center"}} onClick={()=>{window.open(ResultData[0].url2)}}>
-            <img src={NetflixLogo} alt="logo2" width="100" /><div class="mx-4" style={{alignItems: "center",justifyContents:"center", textAlign:"center"}}>넷플릭스</div><img class="mx-4" src={Arrow} alt="arrow" width="35" />
-          </button>
+            <button class="my-4" width="20rem" style={{background: "white", border:"none" , display:"flex", flexDirection:"row", alignItems: "center"}} onClick={()=>{window.open(ResultData[0].url2)}}>
+              <img src={NetflixLogo} alt="logo2" width="100" /><div style={{alignItems: "center",justifyContents:"center", textAlign:"center", width:"100%"}}>넷플릭스</div><img src={Arrow} alt="arrow" width="35" />
+            </button>
+            </ButtonGroup>
         </Platform>
 
         <ButtonGroup>
@@ -92,19 +93,20 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 100%; 
+
   display: flex;
-  justify-content: center;
+  
 `;
 
 const Header = styled.div`
+ 
   display: flex;
   font-size: 30pt;
+  font-family: 'Pretendard-Regular';
   width: 100%; 
   text-align: center
-  width: 100%;
+  margin: auto;
   justify-content: center;
-  font-family: 'Pretendard-Regular';
   background-color: #34ab64;
   color: white;
   
@@ -115,7 +117,7 @@ const Contents = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 40%;
+  width: 448px;
   font-family: 'Pretendard-Regular';
   background-color: white;
 `
@@ -128,11 +130,12 @@ const Desc = styled.div`
 `
 
 const Plot = styled.div`
-  width: 60%;
+  width: 400px;
   background: #cccccc;
   font-size: 15pt;
   margin-top: 20px;
   font-family: 'Pretendard-Regular';
+  
 `
 
 const Platform = styled.div`
