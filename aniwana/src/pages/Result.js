@@ -246,9 +246,6 @@ const LogoImage = styled.div`
   justify-content: center;
 `;
 
-// const Link = styled.div `
-// `
-
 const ButtonGroup = styled.div`
   display: flex;
   flex-direction: column;
