@@ -19,34 +19,31 @@ const Question = () => {
     { id: "tokyo_g", score: 0 },
     { id: "tokyo_re", score: 0 },
     { id: "toradora", score: 0 },
-])
+  ]);
   const navigate = useNavigate();
   const handleClickButton = (no, type) => {
     const newScore = totalScore.map((s) =>
-    s.id === type ? { id: s.id, score: s.score + no } : s
-);
+      s.id === type ? { id: s.id, score: s.score + no } : s
+    );
 
-setTotalScore(newScore);
+    setTotalScore(newScore);
 
-if (QuestionData.length !== questionNo + 1) {
+    if (QuestionData.length !== questionNo + 1) {
       // 다음문제로 문제수 증가
       setQuestionNo(questionNo + 1);
     } else {
       // 결과 페이지 이동
       navigate("/result");
     }
-
-    
   };
 
-
-  
   return (
     <Wrapper>
-      
       <Contents>
         {/* 왼쪽 버튼 클릭시 1 더해줌, 오른쪽 버튼 클릭시 0 더해줌 */}
-        <Title>{QuestionData[questionNo].q}</Title>
+        <Title style={{ whiteSpace: "pre-line" }}>
+          {QuestionData[questionNo].q}
+        </Title>
         <ButtonGroup>
           <Button
             onClick={() => handleClickButton()}
@@ -56,7 +53,7 @@ if (QuestionData.length !== questionNo + 1) {
               fontSize: "15pt",
               marginTop: "20px",
               background: "#34AB64",
-              border:"0px"
+              border: "0px",
             }}
           ></Button>
           <Button
@@ -67,7 +64,7 @@ if (QuestionData.length !== questionNo + 1) {
               fontSize: "15pt",
               marginTop: "20px",
               background: "#34AB64",
-              border:"0px"
+              border: "0px",
             }}
           ></Button>
           <Button
@@ -78,7 +75,7 @@ if (QuestionData.length !== questionNo + 1) {
               fontSize: "15pt",
               marginTop: "20px",
               background: "#34AB64",
-              border:"0px"
+              border: "0px",
             }}
           ></Button>
           <Button
@@ -89,25 +86,27 @@ if (QuestionData.length !== questionNo + 1) {
               fontSize: "15pt",
               marginTop: "20px",
               background: "#34AB64",
-              border:"0px"
+              border: "0px",
             }}
           ></Button>
         </ButtonGroup>
         <BarWrap>
-          <ProgressBar  
-            variant="black" 
+          <ProgressBar
+            variant="black"
             now={(questionNo / QuestionData.length) * 100}
             // style.width = (100/endPoint) * (qIdx+1) + '%';
             style={{
-              marginLeft:"18px",
+              marginLeft: "18px",
               width: "33vh",
               height: "2.5vh",
               borderRadius: "0",
             }}
           />
-          
+
           <PageNo>
-            <div>{questionNo+1}/{QuestionData.length}</div>
+            <div>
+              {questionNo + 1}/{QuestionData.length}
+            </div>
           </PageNo>
         </BarWrap>
       </Contents>
@@ -119,16 +118,16 @@ export default Question;
 
 const Wrapper = styled.div`
   display: flex;
-  
+
   justify-content: center;
   width: 100%;
-  
 `;
 
 const Title = styled.div`
   font-size: 1.6em;
   text-align: center;
-  font-family: 'Pretendard-Regular';
+  font-family: "Pretendard-Regular";
+  font-weight: bold;
 `;
 
 const Contents = styled.div`
@@ -150,7 +149,7 @@ const BarWrap = styled.div`
 const PageNo = styled.div`
   margin: 0px;
   display: flex;
-  line-height: 1.0;
+  line-height: 1;
   flex-direction: row;
   font-size: 1.5rem;
   margin-left: 0.5rem;
@@ -162,6 +161,4 @@ const ButtonGroup = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
 `;
-
