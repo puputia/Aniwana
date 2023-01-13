@@ -149,7 +149,7 @@ const BarWrap = styled.div`
 const PageNo = styled.div`
   margin: 0px;
   display: flex;
-  line-height: 1;
+  line-height: 0.5;
   flex-direction: row;
   font-size: 1.5rem;
   margin-left: 0.5rem;

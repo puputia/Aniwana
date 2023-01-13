@@ -148,7 +148,7 @@ const Result = () => {
               fontFamily: "Pretendard-Regular",
               width: 300,
               height: 55,
-              marginTop: "15px",
+              marginTop: "15px"
             }}
           >
             <img
@@ -165,6 +165,7 @@ const Result = () => {
               width: 300,
               height: 55,
               marginTop: "15px",
+              marginBottom: "50px"
             }}
             onClick={() => navigate("/")}
           >
