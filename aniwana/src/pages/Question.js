@@ -55,7 +55,23 @@ const Question = () => {
               background: "#34AB64",
               border: "0px",
             }}
-          ></Button>
+          >
+            {QuestionData[questionNo].a[0].answer}
+          </Button>
+          <Button
+            onClick={() => handleClickButton()}
+            style={{
+              width: "300px",
+              minHeight: "80px",
+              fontSize: "15pt",
+              marginTop: "20px",
+              background: "#34AB64",
+              border: "0px",
+              
+            }}
+          >
+            {QuestionData[questionNo].a[1].answer}
+          </Button>
           <Button
             onClick={() => handleClickButton()}
             style={{
@@ -66,7 +82,7 @@ const Question = () => {
               background: "#34AB64",
               border: "0px",
             }}
-          ></Button>
+          >{QuestionData[questionNo].a[2].answer}</Button>
           <Button
             onClick={() => handleClickButton()}
             style={{
@@ -77,18 +93,7 @@ const Question = () => {
               background: "#34AB64",
               border: "0px",
             }}
-          ></Button>
-          <Button
-            onClick={() => handleClickButton()}
-            style={{
-              width: "300px",
-              minHeight: "80px",
-              fontSize: "15pt",
-              marginTop: "20px",
-              background: "#34AB64",
-              border: "0px",
-            }}
-          ></Button>
+          >{QuestionData[questionNo].a[3].answer}</Button>
         </ButtonGroup>
         <BarWrap>
           <ProgressBar
