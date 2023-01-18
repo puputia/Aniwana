@@ -18,7 +18,7 @@ const Question = () => {
     { id: "spyfamily", score: 0 },
     { id: "tokyo_g", score: 0 },
     { id: "tokyo_re", score: 0 },
-    { id: "toradora", score: 0 },
+    { id: "tonari", score: 0 },
   ]);
   const navigate = useNavigate();
   const handleClickButton = (no, type) => {
@@ -67,7 +67,6 @@ const Question = () => {
               marginTop: "20px",
               background: "#34AB64",
               border: "0px",
-              
             }}
           >
             {QuestionData[questionNo].a[1].answer}
@@ -82,7 +81,9 @@ const Question = () => {
               background: "#34AB64",
               border: "0px",
             }}
-          >{QuestionData[questionNo].a[2].answer}</Button>
+          >
+            {QuestionData[questionNo].a[2].answer}
+          </Button>
           <Button
             onClick={() => handleClickButton()}
             style={{
@@ -93,7 +94,9 @@ const Question = () => {
               background: "#34AB64",
               border: "0px",
             }}
-          >{QuestionData[questionNo].a[3].answer}</Button>
+          >
+            {QuestionData[questionNo].a[3].answer}
+          </Button>
         </ButtonGroup>
         <BarWrap>
           <ProgressBar
@@ -123,7 +126,6 @@ export default Question;
 
 const Wrapper = styled.div`
   display: flex;
-
   justify-content: center;
   width: 100%;
 `;

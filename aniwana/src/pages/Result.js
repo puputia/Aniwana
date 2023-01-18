@@ -11,19 +11,16 @@ import Arrow from "../assets/img/logo/arrow.png";
 import Kakao from "../assets/img/logo/kakaotalk_sharing_btn_small.png";
 import Twitter from "../assets/img/logo/twitter.png";
 
-// function ShowAni() {
-//   var 현재상태 = 'info';
-//   return (
-//     <div>
-//       {
-//         ResultData[0].link2
-//       }
-//     </div>
-//   )
-// }
+
 
 const Result = () => {
   const navigate = useNavigate();
+  // const [result, setResult] = React.useState(0);
+  
+  // const x = () => {
+  //   ...
+  //   setResult(2);
+  // }
   return (
     <Wrapper>
       <Contents>
@@ -32,7 +29,7 @@ const Result = () => {
         <LogoImage>
           <img
             className="col-lg-10 col-md-8 mx-3 col-sm-8 col-8"
-            src={ResultData[0].image}
+            src={ResultData[11].image}
             alt="애니사진"
           />
         </LogoImage>
@@ -42,19 +39,19 @@ const Result = () => {
             className="mb-20"
             style={{ fontSize: "48px", fontWeight: "bold" }}
           >
-            {ResultData[0].name}
+            {ResultData[11].name}
           </div>
         </Desc>
         <Plot>
           <div style={{ whiteSpace: "pre-line", margin: "5px " }}>
-            {ResultData[0].plot}
+            {ResultData[11].plot}
           </div>
         </Plot>
         <Platform>
           <div style={{ fontWeight: "bold" }}>감상 가능한 플랫폼</div>
           <ButtonGroup>
             {/* {ResultData[0].url2 ? (<></>) : (<></>)} */}
-            {ResultData[0].url1 ? (
+            {ResultData[11].url1 ? (
               <button
                 className="my-4"
                 width="20rem"
@@ -66,7 +63,7 @@ const Result = () => {
                   alignItems: "center",
                 }}
                 onClick={() => {
-                  window.open(ResultData[0].url1);
+                  window.open(ResultData[11].url1);
                 }}
               >
                 <img src={LaftelLogo} alt="logo2" width="100" />
@@ -86,7 +83,7 @@ const Result = () => {
             ) : (
               <></>
             )}
-            {ResultData[0].url2 ? (
+            {ResultData[11].url2 ? (
               <button
                 className="my-4"
                 width="20rem"
@@ -98,7 +95,7 @@ const Result = () => {
                   alignItems: "center",
                 }}
                 onClick={() => {
-                  window.open(ResultData[0].url2);
+                  window.open(ResultData[11].url2);
                 }}
               >
                 <img src={NetflixLogo} alt="logo2" width="100" />
@@ -184,7 +181,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
+  
   display: flex;
 `;
 
@@ -238,6 +235,7 @@ const Title = styled.div`
   font-size: 25pt;
   margin-top: 40px;
   font-family: "Pretendard-Regular";
+  
 `;
 
 const LogoImage = styled.div`
