@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { ProgressBar, Button } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { createSearchParams, useNavigate } from "react-router-dom";
 import { QuestionData } from "../assets/data/questiondata";
 
 const Question = () => {
@@ -21,19 +21,48 @@ const Question = () => {
     { id: "tonari", score: 0 },
   ]);
   const navigate = useNavigate();
-  const handleClickButton = (no, type) => {
-    const newScore = totalScore.map((s) =>
-      s.id === type ? { id: s.id, score: s.score + no } : s
-    );
 
-    setTotalScore(newScore);
+  const handleClickButton = (no) => {
+    let addScore = QuestionData[questionNo].a[no].add_score; // N : 선택한 항목의 idx
+    for (let i = 0; i < 12; ++i) {
+      totalScore[i].score += addScore[i];
+      console.log(totalScore[i].score);
+    }
+
+    // let addScore = totalScore.map((s) =>
+    //   s.id === type ? { id: s.id, score: s.score + no } : s
+    // );
+
+    // setTotalScore(newScore);
 
     if (QuestionData.length !== questionNo + 1) {
       // 다음문제로 문제수 증가
       setQuestionNo(questionNo + 1);
     } else {
       // 결과 페이지 이동
-      navigate("/result");
+
+      
+        let name = "none";
+        let max_score = -111111;
+        let idx_ani = -1;
+
+        for (let i = 0; i < 12; ++i) {
+          if (max_score < totalScore[i].score) {
+            name = totalScore[i].id;
+            max_score = totalScore[i].score;
+            idx_ani = i;
+          }
+        }
+        
+      
+      // Result.js 로 넘어가는거잖아 //  func_calc()으로 리턴된 값을 같이 넘겨야돼
+      navigate({
+        pathname: "/result",
+        search: `?${createSearchParams({
+          AnimeName: name , idx: idx_ani
+        })}`,
+        // Ani: navigate에 넘길 key, Anime_name: navigate에 넘길 value
+      });
     }
   };
 
@@ -46,7 +75,7 @@ const Question = () => {
         </Title>
         <ButtonGroup>
           <Button
-            onClick={() => handleClickButton()}
+            onClick={() => handleClickButton(0)}
             style={{
               width: "300px",
               minHeight: "80px",
@@ -59,7 +88,7 @@ const Question = () => {
             {QuestionData[questionNo].a[0].answer}
           </Button>
           <Button
-            onClick={() => handleClickButton()}
+            onClick={() => handleClickButton(1)}
             style={{
               width: "300px",
               minHeight: "80px",
@@ -72,7 +101,7 @@ const Question = () => {
             {QuestionData[questionNo].a[1].answer}
           </Button>
           <Button
-            onClick={() => handleClickButton()}
+            onClick={() => handleClickButton(2)}
             style={{
               width: "300px",
               minHeight: "80px",
@@ -85,7 +114,7 @@ const Question = () => {
             {QuestionData[questionNo].a[2].answer}
           </Button>
           <Button
-            onClick={() => handleClickButton()}
+            onClick={() => handleClickButton(3)}
             style={{
               width: "300px",
               minHeight: "80px",
@@ -126,6 +155,7 @@ export default Question;
 
 const Wrapper = styled.div`
   display: flex;
+
   justify-content: center;
   width: 100%;
 `;

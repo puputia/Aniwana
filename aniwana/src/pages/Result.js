@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components";
 // import PangImage from '../assets/first_cat.jpg';
 import Button from "react-bootstrap/Button";
-import { useNavigate } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import { ResultData } from "../assets/data/resultdata";
 import NetflixLogo from "../assets/img/logo/netflix_logo.png";
 import LaftelLogo from "../assets/img/logo/laftel_logo.png";
@@ -11,12 +11,17 @@ import Arrow from "../assets/img/logo/arrow.png";
 import Kakao from "../assets/img/logo/kakaotalk_sharing_btn_small.png";
 import Twitter from "../assets/img/logo/twitter.png";
 
-
-
 const Result = () => {
   const navigate = useNavigate();
-  // const [result, setResult] = React.useState(0);
-  
+  const [searchParams] = useSearchParams();
+  const Ani = searchParams.get("Ani");
+  const [ResultData, setResultData] = React.useState({});
+
+  React.useEffect(() => {
+    const result = ResultData.find((s) => s.name === Ani);
+    setResultData(result);
+  }, [Ani]);
+
   // const x = () => {
   //   ...
   //   setResult(2);
@@ -29,7 +34,7 @@ const Result = () => {
         <LogoImage>
           <img
             className="col-lg-10 col-md-8 mx-3 col-sm-8 col-8"
-            src={ResultData[11].image}
+            src={ResultData[idx].image}
             alt="애니사진"
           />
         </LogoImage>
@@ -39,19 +44,19 @@ const Result = () => {
             className="mb-20"
             style={{ fontSize: "48px", fontWeight: "bold" }}
           >
-            {ResultData[11].name}
+            {ResultData[idx].name}
           </div>
         </Desc>
         <Plot>
           <div style={{ whiteSpace: "pre-line", margin: "5px " }}>
-            {ResultData[11].plot}
+            {ResultData[idx].plot}
           </div>
         </Plot>
         <Platform>
           <div style={{ fontWeight: "bold" }}>감상 가능한 플랫폼</div>
           <ButtonGroup>
             {/* {ResultData[0].url2 ? (<></>) : (<></>)} */}
-            {ResultData[11].url1 ? (
+            {ResultData[idx].url1 ? (
               <button
                 className="my-4"
                 width="20rem"
@@ -63,7 +68,7 @@ const Result = () => {
                   alignItems: "center",
                 }}
                 onClick={() => {
-                  window.open(ResultData[11].url1);
+                  window.open(ResultData[idx].url1);
                 }}
               >
                 <img src={LaftelLogo} alt="logo2" width="100" />
@@ -83,7 +88,7 @@ const Result = () => {
             ) : (
               <></>
             )}
-            {ResultData[11].url2 ? (
+            {ResultData[idx].url2 ? (
               <button
                 className="my-4"
                 width="20rem"
@@ -95,7 +100,7 @@ const Result = () => {
                   alignItems: "center",
                 }}
                 onClick={() => {
-                  window.open(ResultData[11].url2);
+                  window.open(ResultData[idx].url2);
                 }}
               >
                 <img src={NetflixLogo} alt="logo2" width="100" />
@@ -145,7 +150,7 @@ const Result = () => {
               fontFamily: "Pretendard-Regular",
               width: 300,
               height: 55,
-              marginTop: "15px"
+              marginTop: "15px",
             }}
           >
             <img
@@ -162,7 +167,7 @@ const Result = () => {
               width: 300,
               height: 55,
               marginTop: "15px",
-              marginBottom: "50px"
+              marginBottom: "50px",
             }}
             onClick={() => navigate("/")}
           >
@@ -181,7 +186,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  
+
   display: flex;
 `;
 
@@ -235,7 +240,6 @@ const Title = styled.div`
   font-size: 25pt;
   margin-top: 40px;
   font-family: "Pretendard-Regular";
-  
 `;
 
 const LogoImage = styled.div`
