@@ -1,32 +1,21 @@
 import React from "react";
 import styled from "styled-components";
 import { ProgressBar, Button } from "react-bootstrap";
-import { createSearchParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { QuestionData } from "../assets/data/questiondata";
 
 const Question = () => {
   const [questionNo, setQuestionNo] = React.useState(0);
-  const [totalScore, setTotalScore] = React.useState([
-    { id: "amsal", score: 0 },
-    { id: "deathnote", score: 0 },
-    { id: "evangelion", score: 0 },
-    { id: "haikyu", score: 0 },
-    { id: "jujustsu_kaisen", score: 0 },
-    { id: "kaguya", score: 0 },
-    { id: "lovelive", score: 0 },
-    { id: "myhero", score: 0 },
-    { id: "spyfamily", score: 0 },
-    { id: "tokyo_g", score: 0 },
-    { id: "tokyo_re", score: 0 },
-    { id: "tonari", score: 0 },
-  ]);
+  let totalScore = [0,0,0,0,0,0,0,0,0,0,0,0];
+  
   const navigate = useNavigate();
 
   const handleClickButton = (no) => {
     let addScore = QuestionData[questionNo].a[no].add_score; // N : 선택한 항목의 idx
     for (let i = 0; i < 12; ++i) {
-      totalScore[i].score += addScore[i];
-      console.log(totalScore[i].score);
+      totalScore[i] += addScore[i];
+      console.log("totalScore[i]", totalScore[i]);
+      // setTotalScore(); //이부분은 임시로 해놓은건데 어떻게 처리할까나...
     }
 
     // let addScore = totalScore.map((s) =>
@@ -41,28 +30,26 @@ const Question = () => {
     } else {
       // 결과 페이지 이동
 
-      
-        let name = "none";
-        let max_score = -111111;
-        let idx_ani = -1;
+     // 문자열로 초기화 ""
+      let max_score = -111111; // 정수니까 정수로 초기화 , 최댓값을 구하는 것이므로 작은값. -11111 ...
+      let idx_ani = -1; //최댓값이니까 제일 작은값 (index보다 작은값이니까 -1)
 
-        for (let i = 0; i < 12; ++i) {
-          if (max_score < totalScore[i].score) {
-            name = totalScore[i].id;
-            max_score = totalScore[i].score;
-            idx_ani = i;
-          }
+      for (let i = 0; i < 12; ++i) {
+        if (max_score < totalScore[i]) {
+          max_score = totalScore[i];
+          idx_ani = i;
         }
-        
-      
+      }
+     
+      console.log("max_score", max_score);
+      console.log("idx_ani", idx_ani);
+
       // Result.js 로 넘어가는거잖아 //  func_calc()으로 리턴된 값을 같이 넘겨야돼
-      navigate({
-        pathname: "/result",
-        search: `?${createSearchParams({
-          AnimeName: name , idx: idx_ani
-        })}`,
-        // Ani: navigate에 넘길 key, Anime_name: navigate에 넘길 value
-      });
+      navigate('/result', {
+        state: { idx: idx_ani },
+        }
+      );
+      // Ani: navigate에 넘길 key, Anime_name: navigate에 넘길 value
     }
   };
 

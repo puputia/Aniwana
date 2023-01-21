@@ -3,6 +3,7 @@ import React from "react";
 import styled from "styled-components";
 // import PangImage from '../assets/first_cat.jpg';
 import Button from "react-bootstrap/Button";
+import { useLocation } from 'react-router-dom';
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { ResultData } from "../assets/data/resultdata";
 import NetflixLogo from "../assets/img/logo/netflix_logo.png";
@@ -14,18 +15,27 @@ import Twitter from "../assets/img/logo/twitter.png";
 const Result = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const Ani = searchParams.get("Ani");
-  const [ResultData, setResultData] = React.useState({});
+
+  const Ani = searchParams.get('Ani');
+  //최종적으로 도출한 결과 객체
+  const [resultData, setResultData] = React.useState({});
 
   React.useEffect(() => {
     const result = ResultData.find((s) => s.name === Ani);
     setResultData(result);
+    console.log("result",result);
   }, [Ani]);
-
+  
+  console.log("resultdata",ResultData);
+  // idx 구하는식.
   // const x = () => {
   //   ...
   //   setResult(2);
   // }
+
+    const location = useLocation();
+    const idx = location.state.idx;
+   
   return (
     <Wrapper>
       <Contents>
@@ -173,6 +183,7 @@ const Result = () => {
           >
             테스트 다시하기
           </Button>
+          <KakaoShareButton data={resultData} />
         </ButtonGroup>
       </Contents>
     </Wrapper>
@@ -252,4 +263,8 @@ const LogoImage = styled.div`
 const ButtonGroup = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+const KakaoShareButton = styled.div `
+
 `;
