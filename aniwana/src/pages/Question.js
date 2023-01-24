@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { ProgressBar, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { QuestionData } from "../assets/data/questiondata";
+import Wrapper from "../common/Wrapper";
 
 const Question = () => {
   const [questionNo, setQuestionNo] = React.useState(0);
@@ -54,6 +55,7 @@ const Question = () => {
   };
 
   return (
+    <>
     <Wrapper>
       <Contents>
         {/* 왼쪽 버튼 클릭시 1 더해줌, 오른쪽 버튼 클릭시 0 더해줌 */}
@@ -135,17 +137,18 @@ const Question = () => {
         </BarWrap>
       </Contents>
     </Wrapper>
+    </>
   );
 };
 
 export default Question;
 
-const Wrapper = styled.div`
-  display: flex;
+// const Wrapper = styled.div`
+//   display: flex;
 
-  justify-content: center;
-  width: 100%;
-`;
+//   justify-content: center;
+//   width: 100%;
+// `;
 
 const Title = styled.div`
   font-size: 1.6em;

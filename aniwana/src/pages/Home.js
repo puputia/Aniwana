@@ -5,7 +5,8 @@ import PangImage from "../assets/img/icon.png";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
-
+import Wrapper from "../common/Wrapper";
+// import Footer from "../common/Footer";
 const Home = () => {
   const navigate = useNavigate();
 
@@ -14,6 +15,7 @@ const Home = () => {
     navigate("/question");
   };
   return (
+    <>
     <Wrapper>
       <Contents>
         <Title>나의 취향 애니 찾기</Title>
@@ -41,18 +43,21 @@ const Home = () => {
           테스트 시작하기
         </Button>
       </Contents>
+      {/* <Footer />  */}
     </Wrapper>
+    </>
+    
   );
 };
 
 export default Home;
 
-const Wrapper = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+// const Wrapper = styled.div`
+//   width: 100%;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// `;
 
 const Contents = styled.div`
   display: flex;

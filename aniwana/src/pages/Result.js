@@ -11,6 +11,8 @@ import LaftelLogo from "../assets/img/logo/laftel_logo.png";
 import Arrow from "../assets/img/logo/arrow.png";
 import Kakao from "../assets/img/logo/kakaotalk_sharing_btn_small.png";
 import Twitter from "../assets/img/logo/twitter.png";
+import CopyLink from "../assets/img/logo/link.png";
+import Wrapper from "../common/Wrapper";
 
 const Result = () => {
   const navigate = useNavigate();
@@ -37,6 +39,7 @@ const Result = () => {
     const idx = location.state.idx;
    
   return (
+    <>
     <Wrapper>
       <Contents>
         <Header>나의 취향 애니찾기</Header>
@@ -58,7 +61,7 @@ const Result = () => {
           </div>
         </Desc>
         <Plot>
-          <div style={{ whiteSpace: "pre-line", margin: "5px " }}>
+          <div  style={{ whiteSpace: "pre-wrap",  textAlign: "left", margin:"0 10px 0 10px",alignItems:"center" }}>
             {ResultData[idx].plot}
           </div>
         </Plot>
@@ -146,7 +149,7 @@ const Result = () => {
             }}
           >
             <img
-              style={{ border: "none", width: "30px", marginRight: "5px" }}
+              style={{ border: "none", width: "28px", marginRight: "10px" }}
               src={Kakao}
               alt="카카오톡 공유"
             />
@@ -154,9 +157,9 @@ const Result = () => {
           </Button>
           <Button
             style={{
-              background: "#00acee",
+              background: "#50abf1",
               border: "1px solid #cccccc",
-              color: "black",
+              color: "white",
               fontFamily: "Pretendard-Regular",
               width: 300,
               height: 55,
@@ -164,11 +167,28 @@ const Result = () => {
             }}
           >
             <img
-              style={{ border: "none", width: "45px", marginRight: "5px" }}
+              style={{ border: "none", width: "35px", margin: "5px" }}
               src={Twitter}
               alt="트위터 공유"
             />
             트위터 공유하기
+          </Button>
+          <Button
+            style={{
+              color: "black",
+              background: "#d3d3d3",
+              fontFamily: "Pretendard-Regular",
+              width: 300,
+              height: 55,
+              marginTop: "15px", 
+            }}
+          >
+            <img
+              style={{ border: "none", width: "28px", marginRight: "10px" }}
+              src={CopyLink}
+              alt="트위터 공유"
+            />
+            링크 복사하기
           </Button>
           <Button
             style={{
@@ -183,23 +203,24 @@ const Result = () => {
           >
             테스트 다시하기
           </Button>
-          <KakaoShareButton data={resultData} />
         </ButtonGroup>
+        {/* <KakaoShareButton data={resultData} /> */}
       </Contents>
     </Wrapper>
+    </>
   );
 };
 
 export default Result;
 
-const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+// const Wrapper = styled.div`
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   flex-direction: column;
 
-  display: flex;
-`;
+//   display: flex;
+// `;
 
 const Header = styled.div`
  
@@ -233,7 +254,7 @@ const Desc = styled.div`
 `;
 
 const Plot = styled.div`
-  width: 400px;
+  width: 80%;
   background: #cccccc;
   font-size: 15pt;
   margin-top: 20px;
