@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/Aniwana/aniwana/static/css/main.18522ce7.css",
+    "main.js": "/Aniwana/aniwana/static/js/main.726e1bf9.js",
+    "static/media/myhero.jpg": "/Aniwana/aniwana/static/media/myhero.6f98a45c0cbd16abe94e.jpg",
+    "static/media/tonari.jpg": "/Aniwana/aniwana/static/media/tonari.a4e20a30086ce0b0d3ac.jpg",
+    "static/media/amsal.jfif": "/Aniwana/aniwana/static/media/amsal.470f943fb5502183d8de.jfif",
+    "static/media/lovelive.jfif": "/Aniwana/aniwana/static/media/lovelive.902085cc919f57d50b2a.jfif",
+    "static/media/haikyu.jfif": "/Aniwana/aniwana/static/media/haikyu.6882c3a5ab0c0f65d311.jfif",
+    "static/media/spyfamily.jfif": "/Aniwana/aniwana/static/media/spyfamily.7c96f6a81b4150c0488c.jfif",
+    "static/media/deathnote.jfif": "/Aniwana/aniwana/static/media/deathnote.d1eb7165b3dc4aad5f00.jfif",
+    "static/media/kaguya.jfif": "/Aniwana/aniwana/static/media/kaguya.0231ee980bf34fa3082f.jfif",
+    "static/media/evangelion.jpg": "/Aniwana/aniwana/static/media/evangelion.d82837f018a81e7627d4.jpg",
+    "static/media/jujustsu_kaisen.jpg": "/Aniwana/aniwana/static/media/jujustsu_kaisen.4b81fd27536980507b8d.jpg",
+    "static/media/tokyo_g.jfif": "/Aniwana/aniwana/static/media/tokyo_g.c5c6f5605d5ba0793d8c.jfif",
+    "static/media/tokyo_re.jfif": "/Aniwana/aniwana/static/media/tokyo_re.b73dcdf189532e1a31e6.jfif",
+    "static/media/icon.png": "/Aniwana/aniwana/static/media/icon.63ec34149a960ca6f8e1.png",
+    "static/media/kakaotalk_sharing_btn_small.png": "/Aniwana/aniwana/static/media/kakaotalk_sharing_btn_small.cf428903d0dc50fddf48.png",
+    "static/media/netflix_logo.png": "/Aniwana/aniwana/static/media/netflix_logo.c1d59bbbe2ae0e14b11a.png",
+    "index.html": "/Aniwana/aniwana/index.html",
+    "main.18522ce7.css.map": "/Aniwana/aniwana/static/css/main.18522ce7.css.map",
+    "main.726e1bf9.js.map": "/Aniwana/aniwana/static/js/main.726e1bf9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.18522ce7.css",
+    "static/js/main.726e1bf9.js"
+  ]
+}
