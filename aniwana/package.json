@@ -10,6 +10,7 @@
     "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.0",
+    "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.2.0",
     "react-responsive": "^9.0.2",
     "react-router-dom": "^6.7.0",
@@ -25,7 +26,7 @@
     "deploy": "gh-pages -d build",
     "predeploy": "npm run build"
   },
-  "homepage": "https://puputia.github.io/Aniwana",
+  "homepage": "https://puputia.github.io/Aniwana_",
   "eslintConfig": {
     "extends": [
       "react-app",

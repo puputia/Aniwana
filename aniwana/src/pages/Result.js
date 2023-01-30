@@ -9,7 +9,8 @@ import { ResultData } from "../assets/data/resultdata";
 import NetflixLogo from "../assets/img/logo/netflix_logo.png";
 import LaftelLogo from "../assets/img/logo/laftel_logo.png";
 import Arrow from "../assets/img/logo/arrow.png";
-import Kakao from "../assets/img/logo/kakaotalk_sharing_btn_small.png";
+
+import KakaoShareButton from '../component/KakaoShareButton';
 import Twitter from "../assets/img/logo/twitter.png";
 import CopyLink from "../assets/img/logo/link.png";
 import Wrapper from "../common/Wrapper";
@@ -135,26 +136,9 @@ const Result = () => {
             )}
           </ButtonGroup>
         </Platform>
-
+        <KakaoShareButton data={resultData} />
         <ButtonGroup>
-          <Button
-            style={{
-              background: "#FEE500",
-              border: "1px solid #cccccc",
-              color: "black",
-              fontFamily: "Pretendard-Regular",
-              width: 300,
-              height: 55,
-              marginTop: "15px",
-            }}
-          >
-            <img
-              style={{ border: "none", width: "28px", marginRight: "10px" }}
-              src={Kakao}
-              alt="카카오톡 공유"
-            />
-            카카오톡 공유하기
-          </Button>
+          
           <Button
             style={{
               background: "#50abf1",
@@ -204,7 +188,7 @@ const Result = () => {
             테스트 다시하기
           </Button>
         </ButtonGroup>
-        {/* <KakaoShareButton data={resultData} /> */}
+        
       </Contents>
     </Wrapper>
     </>
@@ -286,6 +270,4 @@ const ButtonGroup = styled.div`
   flex-direction: column;
 `;
 
-const KakaoShareButton = styled.div `
 
-`;
